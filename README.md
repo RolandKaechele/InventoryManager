@@ -13,6 +13,8 @@ A standalone Unity package for managing player item inventories, with optional i
 - **Optional** MapLoaderFramework bridge — auto-grant `{mapId}_items` lists on map load
 - **Optional** SaveManager bridge — serialize/deserialize inventory in save slots; wire trigger flags
 - **Optional** LocalizationManager bridge — resolve localized item labels and descriptions via `labelLocalizationKey` / `descriptionLocalizationKey` fields (activated via `INVENTORYMANAGER_LM`)
+- **Optional** MiniGameManager bridge — auto-grant item rewards from `Resources/MiniGames/{id}_rewards.json` on mini-game completion (activated via `INVENTORYMANAGER_MGM`)
+- **Optional** DlcManager bridge — grant `DlcPackData.itemIds` and/or a `{packId}_items.json` grant list when a DLC pack is unlocked (activated via `INVENTORYMANAGER_DLC`)
 
 
 ## Installation
@@ -46,7 +48,9 @@ InventoryManager/
 │   ├── InventoryTrigger.cs           # Scene pickup / award trigger
 │   ├── MapLoaderInventoryBridge.cs   # Optional: MLF integration
 │   ├── SaveInventoryBridge.cs        # Optional: SaveManager integration
-│   └── LocalizationInventoryBridge.cs # Optional: LocalizationManager integration
+│   ├── LocalizationInventoryBridge.cs # Optional: LocalizationManager integration
+│   ├── MiniGameInventoryBridge.cs    # Optional: MiniGameManager integration
+│   └── DlcInventoryBridge.cs         # Optional: DlcManager integration
 ├── Editor/
 │   └── InventoryManagerEditor.cs     # Custom inspector
 ├── Examples/
@@ -271,6 +275,8 @@ See `Examples/Scripts/example_item_pickup.lua` for a Lua-side usage example.
 | MapLoaderFramework | Optional — enable `INVENTORYMANAGER_MLF` |
 | SaveManager | Optional — enable `INVENTORYMANAGER_SM` |
 | LocalizationManager | Optional — enable `INVENTORYMANAGER_LM` |
+| MiniGameManager | Optional — enable `INVENTORYMANAGER_MGM` |
+| DlcManager | Optional — enable `INVENTORYMANAGER_DLC` |
 
 
 ## Repository
