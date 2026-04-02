@@ -12,6 +12,7 @@ A standalone Unity package for managing player item inventories, with optional i
 - `InventoryTrigger` component for scene pickups (OnStart, OnTriggerEnter, OnInteract)
 - **Optional** MapLoaderFramework bridge — auto-grant `{mapId}_items` lists on map load
 - **Optional** SaveManager bridge — serialize/deserialize inventory in save slots; wire trigger flags
+- **Optional** LocalizationManager bridge — resolve localized item labels and descriptions via `labelLocalizationKey` / `descriptionLocalizationKey` fields (activated via `INVENTORYMANAGER_LM`)
 
 
 ## Installation
@@ -44,7 +45,8 @@ InventoryManager/
 │   ├── InventoryManager.cs           # Main orchestrator (MonoBehaviour)
 │   ├── InventoryTrigger.cs           # Scene pickup / award trigger
 │   ├── MapLoaderInventoryBridge.cs   # Optional: MLF integration
-│   └── SaveInventoryBridge.cs        # Optional: SaveManager integration
+│   ├── SaveInventoryBridge.cs        # Optional: SaveManager integration
+│   └── LocalizationInventoryBridge.cs # Optional: LocalizationManager integration
 ├── Editor/
 │   └── InventoryManagerEditor.cs     # Custom inspector
 ├── Examples/
@@ -190,6 +192,36 @@ bridge.RestoreInventory();  // restore from save slot
 ```
 
 
+## LocalizationManager Integration
+
+Enable the scripting define `INVENTORYMANAGER_LM` in Unity Player Settings.
+
+Add `LocalizationInventoryBridge` to any GameObject in your scene.
+
+The bridge exposes helper methods for resolving item display names and descriptions in the active language. Use these instead of reading `ItemData.label` directly whenever displaying items in UI. Falls back to the raw `label` / `description` field when no localization key is set or the key resolves to `null`.
+
+```csharp
+var bridge = FindFirstObjectByType<LocalizationInventoryBridge>();
+
+// By ItemData
+string label = bridge.GetLabel(itemData);
+string desc  = bridge.GetDescription(itemData);
+
+// By item ID (looks up ItemData internally)
+string label = bridge.GetLabel("key_reactor_room");
+string desc  = bridge.GetDescription("key_reactor_room");
+```
+
+### `LocalizationInventoryBridge` API
+
+| Member | Description |
+| ------ | ----------- |
+| `GetLabel(ItemData item) → string` | Localized label; falls back to `item.label` |
+| `GetLabel(string itemId) → string` | Looks up `ItemData` then resolves label |
+| `GetDescription(ItemData item) → string` | Localized description; falls back to `item.description` |
+| `GetDescription(string itemId) → string` | Looks up `ItemData` then resolves description |
+
+
 ## Runtime API
 
 ### InventoryManager
@@ -238,6 +270,7 @@ See `Examples/Scripts/example_item_pickup.lua` for a Lua-side usage example.
 | Unity 2022.3+ | Required |
 | MapLoaderFramework | Optional — enable `INVENTORYMANAGER_MLF` |
 | SaveManager | Optional — enable `INVENTORYMANAGER_SM` |
+| LocalizationManager | Optional — enable `INVENTORYMANAGER_LM` |
 
 
 ## Repository
