@@ -1,0 +1,21 @@
+{
+  "name": "com.rolandkaechele.inventorymanager",
+  "version": "1.0.0",
+  "displayName": "Inventory Manager",
+  "description": "Standalone item inventory system for Unity with optional MapLoaderFramework and SaveManager integration.",
+  "unity": "2022.3",
+  "author": {
+    "name": "Roland Kaechele"
+  },
+  "keywords": [
+    "inventory",
+    "items",
+    "pickup",
+    "save",
+    "maploader"
+  ],
+  "scripts": {
+    "postinstall": "node postinstall.js"
+  },
+  "dependencies": {}
+}
