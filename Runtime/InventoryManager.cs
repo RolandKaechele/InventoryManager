@@ -3,12 +3,19 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+#if ODIN_INSPECTOR
+using Sirenix.OdinInspector;
+#endif
 
 namespace InventoryManager.Runtime
 {
     [AddComponentMenu("InventoryManager/Inventory Manager")]
     [DisallowMultipleComponent]
+#if ODIN_INSPECTOR
+    public class InventoryManager : SerializedMonoBehaviour
+#else
     public class InventoryManager : MonoBehaviour
+#endif
     {
         // ─── Inspector ───────────────────────────────────────────────────────────
         [Tooltip("Subfolder under Resources/ where item definition JSON files are stored.")]
