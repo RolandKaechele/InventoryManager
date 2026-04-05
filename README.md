@@ -15,6 +15,7 @@ A standalone Unity package for managing player item inventories, with optional i
 - **Optional** LocalizationManager bridge — resolve localized item labels and descriptions via `labelLocalizationKey` / `descriptionLocalizationKey` fields (activated via `INVENTORYMANAGER_LM`)
 - **Optional** MiniGameManager bridge — auto-grant item rewards from `Resources/MiniGames/{id}_rewards.json` on mini-game completion (activated via `INVENTORYMANAGER_MGM`)
 - **Optional** DlcManager bridge — grant `DlcPackData.itemIds` and/or a `{packId}_items.json` grant list when a DLC pack is unlocked (activated via `INVENTORYMANAGER_DLC`)
+- **DOTween Pro integration** — pickup toast slides in with `DOAnchorPos`/`DOFade` on `OnItemAdded`; inventory slot `DOPunchScale` provides tactile feedback on quantity changes (activated via `INVENTORYMANAGER_DOTWEEN`)
 - **Odin Inspector integration** — `SerializedMonoBehaviour` base for full Inspector serialization of complex types; runtime-display fields marked `[ReadOnly]` in Play Mode (activated via `ODIN_INSPECTOR`)
 
 
