@@ -1,13 +1,13 @@
 {
-  "id": "key_reactor_room",
-  "label": "Reactor Room Key",
-  "description": "Opens the reinforced door to the station's reactor control room.",
-  "labelLocalizationKey": "item.key_reactor_room.label",
-  "descriptionLocalizationKey": "item.key_reactor_room.description",
-  "iconResource": "Items/Icons/key_reactor",
-  "category": 0,
-  "canDrop": false,
-  "canUse": false,
-  "useEffect": "",
-  "maxStack": 1
+    "id":  "key_reactor_room",
+    "label":  "Reactor Room Key",
+    "description":  "Opens the reinforced door to the station\u0027s reactor control room.",
+    "labelLocalizationKey":  "item.key_reactor_room.label",
+    "descriptionLocalizationKey":  "item.key_reactor_room.description",
+    "iconResource":  "Items/Icons/key_reactor",
+    "category":  0,
+    "canDrop":  false,
+    "canUse":  false,
+    "useEffect":  "",
+    "maxStack":  1
 }

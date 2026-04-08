@@ -1,13 +1,13 @@
 {
-  "id": "doc_transmission_log",
-  "label": "Transmission Log",
-  "description": "A printed copy of an intercepted alien transmission. Contains partial coordinates.",
-  "labelLocalizationKey": "item.doc_transmission_log.label",
-  "descriptionLocalizationKey": "item.doc_transmission_log.description",
-  "iconResource": "Items/Icons/document_paper",
-  "category": 1,
-  "canDrop": false,
-  "canUse": true,
-  "useEffect": "read_document",
-  "maxStack": 1
+    "id":  "doc_transmission_log",
+    "label":  "Transmission Log",
+    "description":  "A printed copy of an intercepted alien transmission. Contains partial coordinates.",
+    "labelLocalizationKey":  "item.doc_transmission_log.label",
+    "descriptionLocalizationKey":  "item.doc_transmission_log.description",
+    "iconResource":  "Items/Icons/document_paper",
+    "category":  1,
+    "canDrop":  false,
+    "canUse":  true,
+    "useEffect":  "read_document",
+    "maxStack":  1
 }
