@@ -1,6 +1,6 @@
 #if INVENTORYMANAGER_DOTWEEN
 using UnityEngine;
-using UnityEngine.UI;
+
 using DG.Tweening;
 
 namespace InventoryManager.Runtime

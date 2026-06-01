@@ -1,8 +1,9 @@
-﻿{
+{
     "name": "InventoryManager.Editor",
     "rootNamespace": "InventoryManager.Editor",
     "references": [
-        "InventoryManager.Runtime"
+        "InventoryManager.Runtime",
+        "UnityEngine.UI"
     ],
     "includePlatforms": [
         "Editor"
